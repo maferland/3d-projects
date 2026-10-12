@@ -1,0 +1,13 @@
+.DS_Store
+.worktrees/
+.venv/
+node_modules/
+__pycache__/
+
+# Third-party cutlery meshes and generated derivatives stay local.
+source/*.stl
+*.stl
+build/*
+!build/B_receiver_v2_fit_report.json
+!exports/
+!exports/*.stl

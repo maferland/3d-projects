@@ -1,0 +1,8 @@
+{
+  "name": "3d-projects",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "openscad-wasm-prebuilt": "1.2.0"
+  }
+}
