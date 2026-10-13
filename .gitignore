@@ -11,3 +11,5 @@ build/*
 !build/B_receiver_v2_fit_report.json
 !exports/
 !exports/*.stl
+!independent-exports/
+!independent-exports/*.stl

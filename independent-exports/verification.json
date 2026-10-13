@@ -1,0 +1,61 @@
+{
+  "A": {
+    "dimensions_mm": [
+      125.5,
+      230.46206855773926,
+      61.599998474121094
+    ],
+    "volume_mm3": 312499.53523326135,
+    "watertight": true,
+    "connected_solids": 1
+  },
+  "B": {
+    "dimensions_mm": [
+      125.5,
+      209.60000038146973,
+      61.599998474121094
+    ],
+    "volume_mm3": 311755.97988708934,
+    "watertight": true,
+    "connected_solids": 1
+  },
+  "key": {
+    "dimensions_mm": [
+      4.200000002980232,
+      22.0,
+      5.0
+    ],
+    "volume_mm3": 373.9999998360872,
+    "watertight": true,
+    "connected_solids": 1
+  },
+  "coupon_A": {
+    "dimensions_mm": [
+      125.5,
+      45.71206855773926,
+      61.599998474121094
+    ],
+    "volume_mm3": 41099.63164410282,
+    "watertight": true,
+    "connected_solids": 1
+  },
+  "coupon_B": {
+    "dimensions_mm": [
+      125.5,
+      47.85000038146973,
+      61.599998474121094
+    ],
+    "volume_mm3": 63694.49766525719,
+    "watertight": true,
+    "connected_solids": 1
+  },
+  "A_B_collision_mm3": 0.0,
+  "key_collisions_mm3": 0,
+  "straight_assembly_path_checked_mm": [
+    0,
+    0.5,
+    2,
+    10,
+    25
+  ]
+}
