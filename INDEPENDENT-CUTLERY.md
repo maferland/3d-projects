@@ -7,15 +7,15 @@ The first upper pocket is undivided; its under-slope tunnel is divided.
 The other three pockets have center dividers.
 
 The shell, slopes, floor, and dividers are split together with one diagonal
-interface and a 0.3 mm longitudinal gap. Two separate bow-tie locking keys
-drop into recesses at the rim to hold the halves together. Each key has
-0.25 mm clearance from its socket walls. The keys are removable friction-fit
-parts; this prototype does not use spring snap clips.
+interface and a 0.3 mm longitudinal gap. Two integrated spring clips on B fit
+recesses in A's outer wall. The tabs and receivers remain within the 125.5 mm
+width and add no inward shoulder to the cutlery openings. The tabs are 1.1 mm
+thick and require about 0.2 mm outward flex at the entry lip before seating.
 
-Print the joint coupons and two keys before the full halves. Check insertion,
-key retention, rigidity, print orientation, and support needs. Coupons are
-cropped copies of the full joint, including the center divider and both rim
-sockets. After testing, print A and B and two keys. This pair is a new design
+Print the joint coupons before the full halves. Check insertion,
+clip retention, rigidity, print orientation, and support needs. Coupons are
+cropped copies of the full joint, including the center divider and both outside
+clips. After testing, print A and B. This pair is a new design
 and is not intended to mate with the previous adapted A.
 
 ## Build and verification
@@ -24,7 +24,6 @@ and is not intended to mate with the previous adapted A.
 npm ci
 node export-independent.mjs A
 node export-independent.mjs B
-node export-independent.mjs key
 node export-independent.mjs coupon_A
 node export-independent.mjs coupon_B
 uv venv .venv
@@ -35,7 +34,8 @@ uv pip install --python .venv/bin/python -r requirements-cutlery.txt
 
 Exports, inspection renders, and the verification report appear in
 `independent-exports/`. Mesh collision checks cover the assembled halves,
-both keys, and several positions along the straight assembly path. These
+and the assembly path at 1 mm increments. Seated halves have zero collision;
+insertion contact is confined to the flexible clip teeth. These
 checks do not establish physical fit, utensil capacity, print quality, or
 material strength. This prototype needs physical testing before a MakerWorld
 print profile is published.

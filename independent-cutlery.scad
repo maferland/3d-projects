@@ -1,5 +1,5 @@
 // Independently constructed geometry. No imported source meshes.
-part = "A"; // A, B, key, coupon_A, coupon_B, assembled
+part = "A"; // A, B, coupon_A, coupon_B, assembled
 width = 125.5;
 depth = 419.5;
 height = 61.6;
@@ -10,7 +10,6 @@ pitch = depth / 4;
 divider_width = 3.4;
 joint_gap = 0.3;
 joint_slope = 0.38;
-key_clearance = 0.25;
 joint_top_y = joint_slope * (height - floor_z);
 $fn = 32;
 
@@ -68,23 +67,26 @@ module front_tunnel_divider() {
     translate([-divider_width/2,high_y,6.4]) cube([divider_width,1.4,height-6.4]);
 }
 
-module key_outline(clearance=0) {
-    offset(delta=clearance)
-        polygon([[-2.1,-11],[2.1,-11],[1.3,0],[2.1,11],[-2.1,11],[-1.3,0]]);
+module mirrored_sides() {
+    children();
+    mirror([1,0,0]) children();
 }
 
-module key() {
-    linear_extrude(height=5) key_outline();
+module outside_clip() {
+    // B's cantilever occupies A's recessed outer wall, within the 3U envelope.
+    translate([width/2-1.2,-12,25]) cube([1.1,27,6]);
+    translate([0,0,25]) linear_extrude(height=6)
+        polygon([[width/2-1.2,-11],[width/2-1.65,-9],
+            [width/2-1.65,-7],[width/2-1.2,-7]]);
 }
 
-module key_sockets() {
-    for(side=[-1,1])
-        translate([side*(width/2-3),joint_top_y,height-5.25])
-            linear_extrude(height=6) key_outline(key_clearance);
+module outside_receiver() {
+    translate([width/2-1.45,-12.3,24.75]) cube([1.7,27.6,6.5]);
+    // Catch pocket: only 0.2 mm outward flex is needed to pass the entry lip.
+    translate([width/2-1.75,-11.25,24.75]) cube([0.7,4.5,6.5]);
 }
 
 module continuous_tray() {
-    difference() {
         union() {
             translate([0,0,base_z]) linear_extrude(height=2)
                 rounded_rectangle([width,depth],8);
@@ -97,12 +99,7 @@ module continuous_tray() {
             translate([-divider_width/2,-depth/2+pitch-0.2,6.4])
                 cube([divider_width,depth-pitch-wall+0.2,height-6.4]);
             front_tunnel_divider();
-            for(side=[-1,1])
-                translate([side==1 ? width/2-6 : -width/2,joint_top_y-14,height-8])
-                    cube([6,28,8]);
         }
-        key_sockets();
-    }
 }
 
 module diagonal_bounds(half) {
@@ -118,11 +115,15 @@ module diagonal_bounds(half) {
 
 module tray_half(half) {
     union() {
-        intersection() {
-            continuous_tray();
-            diagonal_bounds(half);
+        difference() {
+            intersection() {
+                continuous_tray();
+                diagonal_bounds(half);
+            }
+            if(half=="A") mirrored_sides() outside_receiver();
         }
         feet(half);
+        if(half=="B") mirrored_sides() outside_clip();
     }
 }
 
@@ -133,8 +134,7 @@ module coupon(half) {
     }
 }
 
-if(part=="key") key();
-else if(part=="coupon_A") coupon("A");
+if(part=="coupon_A") coupon("A");
 else if(part=="coupon_B") coupon("B");
 else if(part=="assembled") {
     tray_half("A");

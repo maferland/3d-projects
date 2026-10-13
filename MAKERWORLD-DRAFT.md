@@ -11,18 +11,19 @@ dividers. The tunnel beneath the first shelf also has a divider.
 
 The base occupies three by ten Gridfinity cells. Each half has fifteen feet,
 arranged three by five. A diagonal joint divides all surfaces together,
-including the center divider. Two removable bow-tie keys hold the halves
-together at the rim.
+including the center divider. Two integrated spring clips on the outside of
+the diagonal joint hold the halves together. They fit within the tray's width
+and add no inward shoulder to the cutlery openings.
 
 Assembled dimensions: 125.5 x 419.5 x 61.6 mm.
-Print one A, one B, and two keys. A is approximately 230.5 mm long including
-the overlap; B is approximately 209.6 mm long.
+Print one A and one B. A is approximately 230.5 mm long including
+the overlap; B is approximately 221.8 mm long including its clip tabs.
 
 ## Test before publication
 
-- Print one coupon_A, one coupon_B, and two keys.
+- Print one coupon_A and one coupon_B.
 - Check the diagonal joint seats fully without divider interference.
-- Check the keys insert, stay seated, and can be removed.
+- Check the clips deflect, seat, and retain the halves without cracking.
 - Confirm the Gridfinity feet fit the drawer grid.
 - Print full A/B and check knife length, spoon-head width, and 8–10 utensils
   per category using the user's actual cutlery.
@@ -31,5 +32,6 @@ the overlap; B is approximately 209.6 mm long.
 - Add real photographs and choose the publication license before upload.
 
 Mesh validation: all exported parts are watertight. Boolean checks report zero
-intersection between assembled halves or inserted keys, and no collision along
-the checked straight assembly positions. Physical behavior remains unverified.
+intersection between seated halves. Contact during insertion is limited to
+the flexible clip teeth; dividers and ramps remain clear. Physical behavior
+remains unverified.

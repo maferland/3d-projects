@@ -6,7 +6,7 @@ Dimensions are in millimeters.
 ## Projects
 
 - [Independent angled cutlery tray](INDEPENDENT-CUTLERY.md): new geometry with
-  complementary divider ends, a diagonal joint, locking keys, and test coupons.
+  complementary divider ends, a diagonal joint, outside clips, and test coupons.
   Prototype awaiting physical fit and print testing for a MakerWorld release.
 - [Gridfinity cutlery tray](README.cutlery.md): a 3 x 10 tray with angled pockets,
   original diagonal clips, and a revised B receiver compatible with an already

@@ -5,27 +5,17 @@
       230.46206855773926,
       61.599998474121094
     ],
-    "volume_mm3": 312499.53523326135,
+    "volume_mm3": 311814.8917099649,
     "watertight": true,
     "connected_solids": 1
   },
   "B": {
     "dimensions_mm": [
       125.5,
-      209.60000038146973,
+      221.75,
       61.599998474121094
     ],
-    "volume_mm3": 311755.97988708934,
-    "watertight": true,
-    "connected_solids": 1
-  },
-  "key": {
-    "dimensions_mm": [
-      4.200000002980232,
-      22.0,
-      5.0
-    ],
-    "volume_mm3": 373.9999998360872,
+    "volume_mm3": 311644.98397110734,
     "watertight": true,
     "connected_solids": 1
   },
@@ -35,27 +25,123 @@
       45.71206855773926,
       61.599998474121094
     ],
-    "volume_mm3": 41099.63164410282,
+    "volume_mm3": 40414.98812080638,
     "watertight": true,
     "connected_solids": 1
   },
   "coupon_B": {
     "dimensions_mm": [
       125.5,
-      47.85000038146973,
+      60.0,
       61.599998474121094
     ],
-    "volume_mm3": 63694.49766525719,
+    "volume_mm3": 63583.50174927514,
     "watertight": true,
     "connected_solids": 1
   },
   "A_B_collision_mm3": 0.0,
-  "key_collisions_mm3": 0,
+  "inward_rim_shoulders_mm3": 0,
+  "insertion_contacts": [
+    {
+      "separation_mm": 1,
+      "clip_only_contact_mm3": 1.8000068664550781
+    },
+    {
+      "separation_mm": 2,
+      "clip_only_contact_mm3": 4.200016021728516
+    },
+    {
+      "separation_mm": 3,
+      "clip_only_contact_mm3": 5.840646743774414
+    },
+    {
+      "separation_mm": 4,
+      "clip_only_contact_mm3": 5.866691271472519
+    },
+    {
+      "separation_mm": 5,
+      "clip_only_contact_mm3": 5.866691271472519
+    },
+    {
+      "separation_mm": 6,
+      "clip_only_contact_mm3": 5.866691271472519
+    },
+    {
+      "separation_mm": 7,
+      "clip_only_contact_mm3": 5.866691271472519
+    },
+    {
+      "separation_mm": 8,
+      "clip_only_contact_mm3": 5.866691271472519
+    },
+    {
+      "separation_mm": 9,
+      "clip_only_contact_mm3": 5.866691271472519
+    },
+    {
+      "separation_mm": 10,
+      "clip_only_contact_mm3": 5.866691307235517
+    },
+    {
+      "separation_mm": 11,
+      "clip_only_contact_mm3": 5.866691271472519
+    },
+    {
+      "separation_mm": 12,
+      "clip_only_contact_mm3": 5.866691271472519
+    },
+    {
+      "separation_mm": 13,
+      "clip_only_contact_mm3": 5.866691271472519
+    },
+    {
+      "separation_mm": 14,
+      "clip_only_contact_mm3": 5.8513292324
+    },
+    {
+      "separation_mm": 15,
+      "clip_only_contact_mm3": 5.1440544399709625
+    },
+    {
+      "separation_mm": 16,
+      "clip_only_contact_mm3": 3.3832124434753346
+    },
+    {
+      "separation_mm": 17,
+      "clip_only_contact_mm3": 1.3008711234269867
+    },
+    {
+      "separation_mm": 18,
+      "clip_only_contact_mm3": 0.19399701776962722
+    }
+  ],
+  "required_outward_clip_flex_mm": 0.2,
   "straight_assembly_path_checked_mm": [
     0,
-    0.5,
+    1,
     2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
     10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
     25
   ]
 }

@@ -25,11 +25,6 @@ def render(name, camera, exploded=False, detail=False):
         if exploded:
             triangles[:, :, 1] += -15 if half == "A" else 15
         items.append((triangles @ transform, normals, np.asarray(color)))
-    if not exploded:
-        key = trimesh.load_mesh(exports / "cutlery_key.stl")
-        for side in [-1, 1]:
-            triangles = key.triangles + np.array([side*59.75,20.9,56.35])
-            items.append((triangles @ transform,key.face_normals,np.array([0.95,0.55,0.12])))
     projected = np.concatenate([item[0].reshape(-1, 3) for item in items])
     low, high = projected[:, :2].min(axis=0), projected[:, :2].max(axis=0)
     image_width, image_height = 1400, 850
