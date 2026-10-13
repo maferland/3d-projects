@@ -1,16 +1,17 @@
 from pathlib import Path
 import hashlib
 import json
+import sys
 import manifold3d
 import numpy as np
 import trimesh
 
 
-root = Path(__file__).resolve().parent
+root = Path(sys.argv[1]).resolve() if len(sys.argv) > 1 else Path(__file__).resolve().parent
 build = root / "build"
 part_a_path = build / "compact_cutlery_tray_3x10_inverted_dividers_A.stl"
 part_b_path = build / "compact_cutlery_tray_3x10_inverted_dividers_B.stl"
-output_path = build / "compact_cutlery_tray_B_receiver_v2.stl"
+output_path = build / "compact_cutlery_tray_B_original_clips_v3.stl"
 
 
 def manifold(mesh):
@@ -37,15 +38,18 @@ solid_a = manifold(part_a)
 solid_b = manifold(part_b)
 added_a = solid_a - manifold(original_a)
 joint_bounds = manifold3d.Manifold.cube((130, 46, 66), center=True).translate((0, 0, 31))
-added_joint = added_a ^ joint_bounds
+divider_region = manifold3d.Manifold.cube((4.4, 46, 66), center=True).translate((0, 0, 31))
+backing_region = manifold3d.Manifold.cube((130, 46, 9), center=True).translate((0, 0, 3.5))
+repair_region = divider_region + backing_region
+added_joint = added_a ^ joint_bounds ^ repair_region
 clearance = 0.25
 receiver = added_joint.minkowski_sum(
     manifold3d.Manifold.cube((2 * clearance,) * 3, center=True)
 )
-contact_relief = (solid_a ^ joint_bounds).minkowski_sum(
+contact_relief = (solid_a ^ joint_bounds ^ repair_region).minkowski_sum(
     manifold3d.Manifold.cube((0.1,) * 3, center=True)
 )
-revised_b = (solid_b - receiver - contact_relief).simplify(0.001)
+revised_b = (solid_b - receiver - contact_relief).simplify(0.00001)
 result = mesh(revised_b)
 result = trimesh.util.concatenate([
     component for component in result.split(only_watertight=False)
@@ -53,6 +57,10 @@ result = trimesh.util.concatenate([
 ])
 assert result.is_watertight
 assert (solid_a ^ manifold(result)).volume() < 0.001
+clip_regions = manifold3d.Manifold.cube((7, 46, 46), center=True).translate((61.5, 0, 35))
+clip_regions += manifold3d.Manifold.cube((7, 46, 46), center=True).translate((-61.5, 0, 35))
+clip_change = ((solid_b ^ clip_regions) - (manifold(result) ^ clip_regions)).volume()
+assert abs(clip_change) < 0.001
 result.export(output_path)
 
 before = (solid_a ^ solid_b).volume()
@@ -66,7 +74,8 @@ report = {
     "removed_B_mm3": solid_b.volume() - revised_b.volume(),
     "dimensions_mm": result.extents.tolist(),
     "watertight": bool(result.is_watertight),
+    "original_clip_material_removed_mm3": clip_change,
     "output": str(output_path),
 }
-(build / "B_receiver_v2_fit_report.json").write_text(json.dumps(report, indent=2))
+(build / "B_original_clips_v3_fit_report.json").write_text(json.dumps(report, indent=2))
 print(json.dumps(report, indent=2))
