@@ -3,6 +3,9 @@
 Personal 3D printing designs, model adaptations, and geometry verification tools.
 Dimensions are in millimeters.
 
+Agent workflow: [AGENTS.md](AGENTS.md). Design and verification lessons:
+[3D project lessons](docs/3d-project-lessons.md).
+
 ## Projects
 
 - [Gridfinity cutlery tray](README.cutlery.md): a 3 x 10 tray with angled pockets,
