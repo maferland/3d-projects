@@ -3,8 +3,8 @@
 Personal 3D printing designs, model adaptations, and geometry verification tools.
 Dimensions are in millimeters.
 
-Agent workflow: [AGENTS.md](AGENTS.md). Design and verification lessons:
-[3D project lessons](docs/3d-project-lessons.md).
+Agent workflow: [AGENTS.md](AGENTS.md). See [accepted design decisions](docs/design-decisions.md),
+[geometry review](docs/geometry-review.md), and [project lessons](docs/3d-project-lessons.md).
 
 ## Projects
 

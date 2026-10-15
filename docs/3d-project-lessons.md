@@ -3,7 +3,9 @@
 The task was to fit an existing angled cutlery tray to a 3 x 10 Gridfinity
 footprint, change its dividers, and preserve the original male/female joint.
 One half had already been printed. The rules in [AGENTS.md](../AGENTS.md)
-generalize the lessons below to future 3D projects.
+generalize the lessons below to future 3D projects. Current accepted choices
+live in [design decisions](design-decisions.md); the reusable checks are in
+[geometry review](geometry-review.md). This document retains the incident history.
 
 ## Preserve the user's chosen mechanism
 
