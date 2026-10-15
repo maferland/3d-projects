@@ -9,7 +9,7 @@ Agent workflow: [AGENTS.md](AGENTS.md). Design and verification lessons:
 ## Projects
 
 - [Gridfinity cutlery tray](README.cutlery.md): a 3 x 10 tray with angled pockets,
-  original diagonal clips, and a revised B receiver compatible with an already
+  preserved original male/female clips, and a revised B compatible with an already
   printed A. Includes build scripts and collision verification.
 - [Elumara mold box](README.elumara.md): ribbed printable panels for a fitted
   silicone mold box. Includes OpenSCAD source and ready-to-print panel exports.

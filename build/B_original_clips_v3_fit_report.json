@@ -1,0 +1,16 @@
+{
+  "printed_A_sha256": "f2361a2681afe502c3f7ab6871ff529136e2c1172609e60965b838dc3ebf1b01",
+  "B_input_sha256": "625d95ff61d7850d208074ed43510f03b00a1a3f66b044d3dd4cf4d4f6947eb2",
+  "clearance_mm": 0.25,
+  "collision_before_mm3": 1019.6094280246235,
+  "collision_after_mm3": 0.00017665299802472942,
+  "removed_B_mm3": 1782.0581093315268,
+  "dimensions_mm": [
+    125.5,
+    230.69370651245117,
+    61.599998474121094
+  ],
+  "watertight": true,
+  "original_clip_material_removed_mm3": 1.1809153794521357e-05,
+  "output": "/Users/maferland/dev/3D/build/compact_cutlery_tray_B_original_clips_v3.stl"
+}
