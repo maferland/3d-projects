@@ -7,6 +7,9 @@ The overlapping bodies extend beyond the five-row base footprint.
 
 ## Print files
 
+An optional [undivided variant](docs/undivided-tray.md) removes the center walls
+from the three split sections while retaining the original baskets and clips.
+
 These STLs and the rendered joint images are local artifacts excluded from
 the public repository. The build scripts generate them from author-supplied meshes.
 

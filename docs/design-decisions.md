@@ -41,6 +41,14 @@ retention, strength, or capacity for the user's actual utensils.
 The next physical step is to test corrected B against the saved printed A.
 There is no reason established by the current geometry checks to reprint A.
 
+### Additional accepted variant
+
+The user also requested an undivided version of the three split sections.
+This retains the selected baskets, original clips, and Gridfinity base while
+omitting added center walls above and beneath the slopes. It is a separate
+matching A/B pair; the saved printed A and divided pair remain unchanged.
+See [undivided tray](undivided-tray.md) for generation and print filenames.
+
 ### Superseded alternatives
 
 The independent design with drop-in rim keys and its later replacement spring

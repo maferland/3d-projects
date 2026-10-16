@@ -1,17 +1,25 @@
 from pathlib import Path
 import hashlib
 import json
-import sys
+import argparse
 import manifold3d
 import numpy as np
 import trimesh
 
 
-root = Path(sys.argv[1]).resolve() if len(sys.argv) > 1 else Path(__file__).resolve().parent
+parser = argparse.ArgumentParser(description="Clear B against a reference A while protecting the original clips.")
+parser.add_argument("root", nargs="?", type=Path, default=Path(__file__).resolve().parent)
+parser.add_argument("--part-a", type=Path)
+parser.add_argument("--part-b", type=Path)
+parser.add_argument("--output", type=Path)
+parser.add_argument("--report", type=Path)
+arguments = parser.parse_args()
+root = arguments.root.resolve()
 build = root / "build"
-part_a_path = build / "compact_cutlery_tray_3x10_inverted_dividers_A.stl"
-part_b_path = build / "compact_cutlery_tray_3x10_inverted_dividers_B.stl"
-output_path = build / "compact_cutlery_tray_B_original_clips_v3.stl"
+part_a_path = arguments.part_a or build / "compact_cutlery_tray_3x10_inverted_dividers_A.stl"
+part_b_path = arguments.part_b or build / "compact_cutlery_tray_3x10_inverted_dividers_B.stl"
+output_path = arguments.output or build / "compact_cutlery_tray_B_original_clips_v3.stl"
+report_path = arguments.report or build / "B_original_clips_v3_fit_report.json"
 
 
 def manifold(mesh):
@@ -77,5 +85,7 @@ report = {
     "original_clip_material_removed_mm3": clip_change,
     "output": str(output_path),
 }
-(build / "B_original_clips_v3_fit_report.json").write_text(json.dumps(report, indent=2))
+if arguments.part_a:
+    report["reference_A_sha256"] = report.pop("printed_A_sha256")
+report_path.write_text(json.dumps(report, indent=2))
 print(json.dumps(report, indent=2))

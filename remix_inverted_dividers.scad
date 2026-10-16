@@ -5,6 +5,7 @@ plate_source_y_min = source_y_min;
 plate_source_y_max = source_y_max;
 first_foot_row = 0;
 last_foot_row = 9;
+include_dividers = true;
 
 source_width = 110;
 source_depth = 395;
@@ -210,10 +211,12 @@ union() {
         );
     }
     merged_front_floor();
-    divider(-299.24);
-    under_slope_divider(-299.24);
-    divider(-200.49);
-    divider(-101.73);
+    if (include_dividers) {
+        divider(-299.24);
+        under_slope_divider(-299.24);
+        divider(-200.49);
+        divider(-101.73);
+    }
     continuous_bottom_plate();
     rear_ramp_bridge();
     selected_gridfinity_feet();
